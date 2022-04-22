@@ -94,7 +94,7 @@ public class mdiBitacora extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem5);
 
-        jMenuItem6.setText("Mantenimiento Cursos");
+        jMenuItem6.setText("Mantenimiento Facultad");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -183,7 +183,7 @@ public class mdiBitacora extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        frmMantenimientoPerfiles ventana = new frmMantenimientoPerfiles();
+        frmMantenimientoFacultad ventana = new frmMantenimientoFacultad();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
