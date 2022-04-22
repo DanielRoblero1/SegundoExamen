@@ -83,7 +83,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        cbxAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "Area Bitacora", "Area Seguridad", "Area Compras", "Area Bitacora", " " }));
+        cbxAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "Area Bitacora", " ", " " }));
         cbxAreas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxAreasActionPerformed(evt);
