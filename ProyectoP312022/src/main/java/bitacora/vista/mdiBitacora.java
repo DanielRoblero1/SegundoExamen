@@ -3,30 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package prototipos.vista;
+package bitacora.vista;
 
 import seguridad.vista.*;
 import java.awt.Dimension;
-import seguridad.controlador.clsUsuarioConectado;
 
 /**
  *
  * @author visitante
  */
-public class mdiPrototipo extends javax.swing.JFrame {
+public class mdiBitacora extends javax.swing.JFrame {
 
     /**
      * Creates new form MdiGeneral
      */
-    public mdiPrototipo() {
-        String mensajeTitulo;
-        //clsUsuario usuarioRegistrado = new clsUsuario();
+    public mdiBitacora() {
         initComponents();
         setLocationRelativeTo(null);
-        
-        this.setExtendedState(mdiPrototipo.MAXIMIZED_BOTH);
-        mensajeTitulo = "Modulo Prototipo" + " " + clsUsuarioConectado.getUsunombre();
-        this.setTitle(mensajeTitulo);
+        this.setExtendedState(mdiBitacora.MAXIMIZED_BOTH);
+        this.setTitle("Módulo Seguridad");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
@@ -50,6 +45,8 @@ public class mdiPrototipo extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jM_MantenimientopApps = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -81,7 +78,7 @@ public class mdiPrototipo extends javax.swing.JFrame {
 
         jMenu4.setText("Catalogos");
 
-        jMenuItem3.setText("Mantenimiento Usuarios");
+        jMenuItem3.setText("Mantenimiento Carrera");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -89,7 +86,7 @@ public class mdiPrototipo extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem3);
 
-        jMenuItem5.setText("Mantenimiento Aplicacion");
+        jMenuItem5.setText("Mantenimiento Aula");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -97,13 +94,29 @@ public class mdiPrototipo extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem5);
 
-        jMenuItem6.setText("Mantenimiento Perfil");
+        jMenuItem6.setText("Mantenimiento Cursos");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
             }
         });
         jMenu4.add(jMenuItem6);
+
+        jMenuItem7.setText("Mantenimiento Sede");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem7);
+
+        jMenuItem8.setText("Mantenimiento Facultad");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem8);
 
         jMenuBar1.add(jMenu4);
 
@@ -177,6 +190,14 @@ public class mdiPrototipo extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);            
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -194,13 +215,13 @@ public class mdiPrototipo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(mdiPrototipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mdiBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(mdiPrototipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mdiBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(mdiPrototipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mdiBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(mdiPrototipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(mdiBitacora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -222,7 +243,7 @@ public class mdiPrototipo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new mdiPrototipo().setVisible(true);
+                new mdiBitacora().setVisible(true);
             }
         });
     }
@@ -243,5 +264,7 @@ public class mdiPrototipo extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     // End of variables declaration//GEN-END:variables
 }
