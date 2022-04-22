@@ -1,0 +1,142 @@
+DROP DATABASE base2;
+CREATE DATABASE base2;
+USE base2;
+-- -----------------------------------------------------
+-- Table `educativo`.`Alumnos`
+-- -----------------------------------------------------
+CREATE TABLE alumnos
+ (
+  alumnocarnet INT NOT NULL AUTO_INCREMENT,
+  alumnonomb VARCHAR(45),
+  alumnodirec VARCHAR(45),
+  alumnotelefono VARCHAR(45),
+  alumnoemail VARCHAR(20),
+  alumnoestatus VARCHAR(1),
+  PRIMARY KEY (alumnocarnet)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+
+-- -----------------------------------------------------
+-- Table `educativo`.`Maestros`
+-- -----------------------------------------------------
+CREATE TABLE maestros
+(
+  maestrocodigo INT NOT NULL AUTO_INCREMENT,
+  maestronomb VARCHAR(45),
+  maestrodirec VARCHAR(45),
+  maetrotelefono VARCHAR(45),
+  maestroemail VARCHAR(20),
+  maestroestatus VARCHAR(1),
+  PRIMARY KEY (maestrocodigo)
+ ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `educativo`.`Facultades`
+-- -----------------------------------------------------
+CREATE TABLE facultades
+(
+  facultadcodigo INT NOT NULL AUTO_INCREMENT,
+  facultadnomb VARCHAR(45),
+  facultadestatus VARCHAR(1),
+  PRIMARY KEY (facultadcodigo)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `educativo`.`Carreras`
+-- -----------------------------------------------------
+CREATE TABLE carreras
+(
+  carreracodigo INT NOT NULL AUTO_INCREMENT,
+  carreranomb VARCHAR(45),
+  facultadcodigo VARCHAR(5),
+  carreraestatus VARCHAR(1),
+  PRIMARY KEY (carreracodigo),
+  FOREIGN KEY (facultadcodigo) REFERENCES facultades(facultadcodigo)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `educativo`.`Cursos`
+-- -----------------------------------------------------
+CREATE TABLE cursos
+(
+  cursocodigo INT NOT NULL AUTO_INCREMENT,
+  cursonomb VARCHAR(45),
+  cursoestatus VARCHAR(1),
+  PRIMARY KEY (cursocodigo)
+ ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `educativo`.`Secciones`
+-- -----------------------------------------------------
+CREATE TABLE secciones
+(
+  seccioncodigo INT NOT NULL AUTO_INCREMENT,
+  seccionnomb VARCHAR(45),
+  seccionestatus VARCHAR(1),
+  PRIMARY KEY (seccioncodigo)
+ ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `educativo`.`Sedes`
+-- -----------------------------------------------------
+CREATE TABLE sedes
+(
+  sedecodigo INT NOT NULL AUTO_INCREMENT,
+  sedenomb VARCHAR(45),
+  sedeestatus VARCHAR(1),
+  PRIMARY KEY (sedecodigo)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `educativo`.`Aulas`
+-- -----------------------------------------------------
+CREATE TABLE aulas
+(
+  aulacodigo INT NOT NULL AUTO_INCREMENT,
+  aulanomb VARCHAR(45),
+  aulaestatus VARCHAR(1),
+  PRIMARY KEY (aulacodigo)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE jornadas
+(
+	jornadacodigo INT NOT NULL AUTO_INCREMENT,
+    jornadanomb VARCHAR(45),
+    jornadaestatus VARCHAR(1),
+    PRIMARY KEY (jornadacodigo)
+) ENGINE=INNODB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `educativo`.`Asignacion_cursos_alumnos`
+-- -----------------------------------------------------
+CREATE TABLE asignacioncursosalumnos
+(
+  carreracodigo INT NOT NULL,
+  sedecodigo INT NOT NULL,
+  jornadacodigo INT NOT NULL,
+  seccioncodigo INT NOT NULL,
+  aulacodigo INT NOT NULL,
+  cursocodigo INT NOT NULL,
+  alumnocarnet INT NOT NULL,
+  notaasignacioncursoalumnos FLOAT(10,2), 
+  PRIMARY KEY (carreracodigo, sedecodigo, jornadacodigo, seccioncodigo, aulacodigo, cursocodigo, alumnocarnet),
+  FOREIGN KEY (carreracodigo) REFERENCES carreras(carreracodigo),
+  FOREIGN KEY (sedecodigo) REFERENCES sedes(sedecodigo),
+  FOREIGN KEY (jornadacodigo) REFERENCES jornadas(jornadacodigo),
+  FOREIGN KEY (seccioncodigo) REFERENCES secciones(seccioncodigo),
+  FOREIGN KEY (aulacodigo) REFERENCES aulas(aulacodigo),
+  FOREIGN KEY (cursocodigo) REFERENCES cursos(cursocodigo),
+  FOREIGN KEY (alumnocarnet) REFERENCES alumnos(alumnocarnet)
+  ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table `educativo`.`Asignacion_cursos_maestros`
+-- -----------------------------------------------------
+CREATE TABLE asignacioncursosmastros
+(
+  carreracodigo INT NOT NULL,
+  sedecodigo INT NOT NULL,
+  jornadacodigo INT NOT NULL,
+  seccioncodigo INT NOT NULL,
+  aulacodigo INT NOT NULL,
+  cursocodigo INT NOT NULL,
+  maestrocodigo INT NOT NULL,
+  PRIMARY KEY (carreracodigo, sedecodigo, jornadacodigo, seccioncodigo, aulacodigo, cursocodigo),
+  FOREIGN KEY (carreracodigo) REFERENCES carreras(carreracodigo),
+  FOREIGN KEY (sedecodigo) REFERENCES sedes(sedecodigo),
+  FOREIGN KEY (jornadacodigo) REFERENCES jornadas(jornadacodigo),
+  FOREIGN KEY (seccioncodigo) REFERENCES secciones(seccioncodigo),
+  FOREIGN KEY (aulacodigo) REFERENCES aulas(aulacodigo),
+  FOREIGN KEY (cursocodigo) REFERENCES cursos(cursocodigo),
+  FOREIGN KEY (maestrocodigo) REFERENCES maestros(maestrocodigo)
+  ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
