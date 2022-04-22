@@ -7,13 +7,13 @@ package seguridad.vista;
 
 
 
+import bitacora.vista.mdiBitacora;
 import compras.vista.mdiComprasG2;
 import seguridad.controlador.clsUsuario;
 import java.awt.HeadlessException;
 
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-import prototipos.vista.mdiPrototipo;
 import seguridad.controlador.clsUsuarioConectado;
 import seguridad.modelo.daoUsuario;
 
@@ -58,7 +58,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Seguridad del Sistema");
 
-        jLabel2.setText("Usuario");
+        jLabel2.setText("Alumno");
 
         jLabel3.setText("Contraseña");
 
@@ -83,7 +83,12 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
 
-        cbxAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "Area Seguridad", "Area Logistica", "Area Compras", "Area Ventas", "Area RRHH", "Prototipo" }));
+        cbxAreas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione:", "Area Bitacora", "Area Seguridad", "Area Compras", "Area Bitacora", " " }));
+        cbxAreas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxAreasActionPerformed(evt);
+            }
+        });
 
         lblArea.setText("Area");
 
@@ -182,10 +187,10 @@ public class frmLogin extends javax.swing.JFrame {
                             System.out.println(e);
                         }
                         break;
-                        case "Prototipo":
+                        case "Area Bitacora":
                         try {
-                            mdiPrototipo menuPrototipo = new mdiPrototipo();
-                            menuPrototipo.setVisible(true);
+                            mdiBitacora menuBitacora = new mdiBitacora();
+                            menuBitacora.setVisible(true);
                             this.dispose();
                         } catch (Exception e) {
                             System.out.println(e);
@@ -222,6 +227,10 @@ public class frmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cbxAreasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAreasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxAreasActionPerformed
 
     /**
      * @param args the command line arguments
